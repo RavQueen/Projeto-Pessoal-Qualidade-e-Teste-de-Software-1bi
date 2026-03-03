@@ -1,0 +1,24 @@
+{
+  "name": "projeto-pessoal-qualidade-e-teste-de-software-1bi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RavQueen/Projeto-Pessoal-Qualidade-e-Teste-de-Software-1bi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RavQueen/Projeto-Pessoal-Qualidade-e-Teste-de-Software-1bi/issues"
+  },
+  "homepage": "https://github.com/RavQueen/Projeto-Pessoal-Qualidade-e-Teste-de-Software-1bi#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
