@@ -1,18 +1,55 @@
+const banco = require('../database/database')
+
 function conversor(metro, unidade) {
-    switch (unidade) {
-        case ("mm"):
-            return `${metro * 1000}mm`
-        case ("cm"):
-            return `${metro * 100}cm`
-        case ("dm"):
-            return `${metro * 10}dm`
-        case ("dam"):
-            return `${metro / 10}dam`
-        case ("hm"):
-            return `${metro / 100}hm`
-        case ("km"):
-            return `${metro / 1000}km`
+
+    if(metro == undefined || unidade == undefined){
+        return "Algum dos dados está vazio, por favor tente novamente."
+    } else if(isNaN(metro)){
+        return "O valor de metros está inválido, tente novamente."
+    } else if (unidade !== "mm" && unidade !== "cm" && unidade !== "dm" && unidade !== "dam" && unidade !== "hm" && unidade !== "km"){
+        return "O valor da unidade de conversão está inválido, tente novamente."
     }
+
+    let resultado
+
+    switch (unidade) {
+        case "mm":
+            resultado = metro * 1000
+            break
+        case "cm":
+            resultado = metro * 100
+            break
+        case "dm":
+            resultado = metro * 10
+            break
+        case "dam":
+            resultado = metro / 10
+            break
+        case "hm":
+            resultado = metro / 100
+            break
+        case "km":
+            resultado = metro / 1000
+            break
+        default:
+            return "Erro inesperado."
+    }
+
+    let dadosResultado = {
+        medida: metro,
+        unidade: unidade,
+        medidaConvertida: resultado,
+        resultadoFinal: `${resultado} ${unidade}`,
+        data: new Date()
+    }
+
+    banco.push(dadosResultado)
+
+    return dadosResultado.resultadoFinal
+}
+
+conversor.listarResultados = () => {
+    return banco
 }
 
 module.exports = conversor
